@@ -99,6 +99,13 @@ public class EditFeaturesCommand extends AbstractConfigCommand {
   )
   private Boolean wercker = null;
 
+  @Parameter(
+    names = "--entity-tags",
+    description = "Enable entity tags. Read more at https://www.spinnaker.io/guides/user/tagging/.",
+    arity = 1
+  )
+  private Boolean entityTags = null;
+  
   @Override
   protected void executeThis() {
     String currentDeployment = getCurrentDeployment();
@@ -117,8 +124,12 @@ public class EditFeaturesCommand extends AbstractConfigCommand {
     features.setMineCanary(mineCanary != null ? mineCanary : features.getMineCanary());
     features.setInfrastructureStages(infrastructureStages != null ? infrastructureStages : features.getInfrastructureStages());
     features.setAppengineContainerImageUrlDeployments(appengineContainerImageUrlDeployments != null ? appengineContainerImageUrlDeployments : features.getAppengineContainerImageUrlDeployments());
+<<<<<<< HEAD
     features.setTravis(travis != null ? travis : features.getTravis());
     features.setWercker(wercker != null ? wercker : features.getWercker());
+=======
+    features.setEntityTags(entityTags != null ? entityTags : features.getEntityTags());
+>>>>>>> e9f5c97b... feat(entityTags): entity tag support
 
     if (originalHash == features.hashCode()) {
       AnsiUi.failure("No changes supplied.");

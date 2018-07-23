@@ -38,6 +38,7 @@ public class BillOfMaterials {
     Artifact redis;
     Artifact consul;
     Artifact vault;
+    Artifact elasticsearch;
 
     Artifact defaultArtifact;
 

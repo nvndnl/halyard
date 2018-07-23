@@ -39,6 +39,7 @@ public enum SpinnakerArtifact {
   // Non-spinnaker
   REDIS("redis", false),
   CONSUL("consul", false),
+  ELASTICSEARCH("elasticsearch", false),
   VAULT("vault", false);
 
   @Getter final String name;

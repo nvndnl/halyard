@@ -41,7 +41,7 @@ public class Features extends Node {
   private boolean auth;
   private boolean fiat;
   private boolean chaos;
-  private boolean entityTags;
+  private Boolean entityTags;
   private boolean jobs;
   @ValidForSpinnakerVersion(lowerBound = "1.2.0", tooLowMessage = "Pipeline templates are not stable prior to this release.")
   private Boolean pipelineTemplates;

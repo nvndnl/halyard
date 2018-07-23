@@ -52,6 +52,9 @@ public class LocalGitServiceProvider extends LocalServiceProvider {
   LocalGitEchoService echoService;
 
   @Autowired
+  LocalGitElasticsearchService elasticsearchService;
+
+  @Autowired
   LocalGitFiatService fiatService;
 
   @Autowired
@@ -80,10 +83,9 @@ public class LocalGitServiceProvider extends LocalServiceProvider {
     String servicePrep = String.join("\n", prepCommands);
 
     TemplatedResource resource = new StringReplaceJarResource("/git/prep.sh");
-    
+
     Map<String, Object> bindings = new HashMap<>();
     bindings.put("prep-commands", servicePrep);
-
     return resource.setBindings(bindings).toString();
   }
 
@@ -101,7 +103,6 @@ public class LocalGitServiceProvider extends LocalServiceProvider {
     TemplatedResource resource = new StringReplaceJarResource("/git/install.sh");
     bindings = new HashMap<>();
     bindings.put("install-commands", String.join("\n", serviceInstalls));
-
     return resource.setBindings(bindings).toString();
   }
 

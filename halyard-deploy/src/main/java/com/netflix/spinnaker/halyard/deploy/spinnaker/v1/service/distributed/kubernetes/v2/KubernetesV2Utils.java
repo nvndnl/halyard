@@ -179,6 +179,7 @@ public class KubernetesV2Utils {
 
   static public void apply(KubernetesAccount account, String manifest) {
     manifest = prettify(manifest);
+    System.out.println(manifest);
     List<String> command = kubectlPrefix(account);
     command.add("apply");
     command.add("-f");
